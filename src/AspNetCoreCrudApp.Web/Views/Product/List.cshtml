@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AspNetCoreCrudApp.Web.Models.ProductViewModel>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <a class="btn btn-default" asp-controller="Product" asp-action="Create">Create new product</a>
+    <div class="panel">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Category</td>
+                    <td>IsAvailable</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.IsAvailable</td>
+                        <td>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-controller="Product" asp-action="Remove" asp-route-id="@item.Id">Remove</a>
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

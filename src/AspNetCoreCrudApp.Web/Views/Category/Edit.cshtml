@@ -1,0 +1,30 @@
+﻿@model AspNetCoreCrudApp.Web.Models.CategoryViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+<div>
+    <h4>Category</h4>
+    <hr />
+    <div class="form-horizontal">
+        <form asp-action="Edit" asp-controller="Category" method="post" role="form">
+            <div>
+                <input type="hidden" asp-for="Id" />
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="Name"></label>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" asp-for="Name" placeholder="Name" />
+                    <span class="field-validation-valid text-danger" asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-3">
+                    <button type="submit" class="btn btn-default">Save</button>
+                    <a class="btn btn-default" asp-controller="Category" asp-action="List">Back to list</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

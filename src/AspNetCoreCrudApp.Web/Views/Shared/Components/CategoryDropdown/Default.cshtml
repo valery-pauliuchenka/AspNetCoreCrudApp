@@ -1,0 +1,22 @@
+﻿@model IEnumerable<AspNetCoreCrudApp.Web.Models.CategoryViewModel>
+<select class="form-control" id="@ViewBag.BindingProperty" name="@ViewBag.BindingProperty">
+    @if (@ViewBag.Id == null)
+    {
+        <option value="0" selected>Select category...</option>
+    }
+    else
+    {
+        <option value="0">Select category...</option>
+    }
+    @foreach (var item in Model)
+    {
+        if (ViewBag.Id != null && ViewBag.Id == item.Id)
+        {
+            <option value="@item.Id" selected>@item.Name</option>
+        }
+        else
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    }
+</select>

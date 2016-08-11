@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AspNetCoreCrudApp.Web.Models.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+<div>
+    <h4>Category</h4>
+    <hr />
+    <a class="btn btn-default" asp-controller="Category" asp-action="Create">Create new category</a>
+    <div class="panel">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <a asp-controller="Category" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-controller="Category" asp-action="Remove" asp-route-id="@item.Id">Remove</a>
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

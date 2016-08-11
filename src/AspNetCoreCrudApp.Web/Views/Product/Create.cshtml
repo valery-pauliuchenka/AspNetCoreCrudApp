@@ -1,0 +1,47 @@
+﻿@model AspNetCoreCrudApp.Web.Models.ProductViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <div class="form-horizontal">
+        <form asp-action="Create" asp-controller="Product" method="post" role="form">
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="Name"></label>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" asp-for="Name" placeholder="Name" />
+                    <span class="field-validation-valid text-danger" asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="CategoryId"></label>
+                <div class="col-md-3">
+                    @await Component.InvokeAsync("CategoryDropdown", new { bindingProperty = "CategoryId" })
+                    <span class="field-validation-valid text-danger" asp-validation-for="CategoryId"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="Price"></label>
+                <div class="col-md-3">
+                    <input class="form-control" type="number" asp-for="Price" placeholder="Price"/>
+                    <span class="field-validation-valid text-danger" asp-validation-for="Price"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="IsAvailable"></label>
+                <div class="col-md-1">
+                        <input class="form-control" type="checkbox" asp-for="IsAvailable" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-3">
+                    <button type="submit" class="btn btn-default">Create</button>
+                    <a class="btn btn-default" asp-controller="Product" asp-action="List">Back to list</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

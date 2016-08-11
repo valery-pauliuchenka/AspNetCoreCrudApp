@@ -1,0 +1,28 @@
+﻿@model AspNetCoreCrudApp.Web.Models.ProductViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Product</h4>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Name</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Category</dt>
+        <dd>@Model.CategoryName</dd>
+
+        <dt>Price</dt>
+        <dd>@Model.Price</dd>
+
+        <dt>Active</dt>
+        <dd>@Model.IsAvailable</dd>
+    </dl>
+</div>
+
+<a class="btn btn-default" asp-controller="Product" asp-action="List">Back to list</a>
